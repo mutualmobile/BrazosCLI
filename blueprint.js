@@ -82,7 +82,8 @@ const createBasicComponent = (className, platform) => {
             var currentFile = '';
             
             // Create Base Component file
-            currentFile = srcBase + data.CLASSNAME+'.js';
+            var ext = (platform == "web") ? "" : ".native"; 
+            currentFile = srcBase + data.CLASSNAME+ext+'.js';
             if (!fs.existsSync(currentFile)){ 
                 var template;
                 if (platform == 'native') {
@@ -107,7 +108,7 @@ const createSubComponent = (className, platform) => {
     return new Promise((res, rej) => {
         var pjson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
         if (pjson && pjson.brazos) {
-            var srcBase = srcShared;
+            var srcBase = srcTheme;
 
             var data = {
                 CLASSNAME: className,
@@ -120,7 +121,13 @@ const createSubComponent = (className, platform) => {
                 var ext = (platform == "web") ? "" : ".native"; 
                 currentFile = srcTheme + data.CLASSNAME+ext+'.js';
                 if (!fs.existsSync(currentFile)){ 
-                    p.preprocessFileSync(bpBase + 'Shared.js', currentFile, data, {type: 'js'});
+                    var template;
+                    if (platform == 'native') {
+                        template = bpBase + 'Native.js';
+                    } else {
+                        template = bpBase + 'Web.js';
+                    }
+                    p.preprocessFileSync(template, currentFile, data, {type: 'js'});
                     console.log(chalk.yellow("(∩｀-´)⊃━☆ﾟ.*･｡ﾟ") + chalk.blue('\tCreated file: ' + currentFile));
                 } else {
                     console.log(chalk.blue('File already exists, skipping. ') + currentFile);
