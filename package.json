@@ -1,6 +1,6 @@
 {
   "name": "brazos-cli",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A CLI tool for Brazos, currently in an alpha state.",
   "main": "index.js",
   "scripts": {
