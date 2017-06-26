@@ -1,0 +1,34 @@
+{
+  "name": "brazos-cli",
+  "version": "1.2.0",
+  "description": "A CLI tool for Brazos, currently in an alpha state.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "brazos",
+    "react",
+    "react",
+    "native",
+    "javascript"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "brazos": "./index.js"
+  },
+  "dependencies": {
+    "adm-zip": "^0.4.7",
+    "ansi": "^0.3.1",
+    "chalk": "^1.1.3",
+    "cli-spinner": "^0.2.6",
+    "commander": "^2.9.0",
+    "npm": "^5.0.3",
+    "ora": "^1.3.0",
+    "preprocess": "^3.1.0",
+    "progress": "^2.0.0",
+    "react-native-rename": "^2.0.4",
+    "request": "^2.81.0"
+  }
+}
