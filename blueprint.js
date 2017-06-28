@@ -61,8 +61,10 @@ const createComponent = (className) => {
                 console.log(chalk.blue('File already exists, skipping. ') + currentFile);
             }
             console.log(chalk.yellow("ヽ(⌐■_■)ノ♪♬") + chalk.blue('\tBrazos begat a new component ') + chalk.green(className) + chalk.blue(".\n\n"));
+            cursor.show();
             res("success")
         } else {
+            cursor.show();
             rej("Not a valid brazos project")
         }
     })
@@ -96,8 +98,10 @@ const createBasicComponent = (className, platform) => {
             } else {
                 console.log(chalk.blue('File already exists, skipping. ') + currentFile);
             }
+            cursor.show();
             res("success")
         } else {
+            cursor.show();
             rej("Not a valid project")
         }
     })
@@ -173,9 +177,11 @@ const createSubComponent = (className, platform) => {
                     console.log(chalk.blue('File already exists, skipping. ') + currentFile);
                 }
                 console.log(chalk.yellow("ヽ(⌐■_■)ノ♪♬") + chalk.blue('\tBrazos begat a new component ') + chalk.green(className) + chalk.blue(".\n\n"));
+                cursor.show();
                 res("success")
             }
         } else {
+            cursor.show();
             rej("Not a brazos project")
         }
     })
